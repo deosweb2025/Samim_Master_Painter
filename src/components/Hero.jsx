@@ -19,7 +19,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative h-[100svh] min-h-[600px] w-full bg-gray-900 flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-[100svh] min-h-[600px] w-full bg-gray-900 flex items-center overflow-hidden pt-20">
       {/* Background Images Slider */}
       <AnimatePresence mode="popLayout">
         <motion.img
@@ -35,10 +35,10 @@ const Hero = () => {
       </AnimatePresence>
       
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-transparent z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent z-0"></div>
 
-      {/* Content */}
+      {/* Main Content Area */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <motion.div
@@ -95,23 +95,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-white/60 text-xs font-medium tracking-widest uppercase">Scroll Down</span>
-        <div className="w-[1px] h-12 bg-white/20 overflow-hidden relative">
-          <motion.div 
-            animate={{ top: ['-100%', '100%'] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-            className="absolute left-0 w-full h-1/2 bg-accent"
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
